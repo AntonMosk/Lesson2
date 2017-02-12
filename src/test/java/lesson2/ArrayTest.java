@@ -16,47 +16,61 @@ public class ArrayTest {
         Array a = new Array();
         a.add(2);
         a.add(3);
+
+        System.out.println(a);
+
         Assert.assertThat(a.size(), is(2));
     }
 
     @Test
     public void dynamicSizing() {
-        Array b = new Array();
-        for (int i=0; i<100; i++) {
-            b.add(i);
+        final int n = 100;
+
+        Array a = new Array();
+        for (int i=0; i<n; i++) {
+            a.add(i);
         }
-        Assert.assertThat(b.size(), is(100));
+
+        System.out.println(a);
+
+        Assert.assertThat(a.size(), is(100));
     }
 
     @Test
     public void shrinkTest() {
-        Array c = new Array();
-        for (int i=0; i<10000; i++) {
-            c.add(i);
+        final int n = 10000;
+
+        Array a = new Array();
+        for (int i=0; i<n; i++) {
+            a.add(i);
         }
 
-        for (int i=0; i<10000; i++) {
-            c.remove(0);
+        System.out.println(a);
+
+        for (int i=0; i<n; i++) {
+            a.remove(0);
         }
-        Assert.assertThat(c.size(), is(0));
-        Assert.assertThat(c.capacity(), is(2));
+
+        System.out.println(a);
+
+        Assert.assertThat(a.size(), is(0));
+        Assert.assertThat(a.capacity(), is(2));
 
 //        c.remove(10);
     }
 
     @Test
     public void getTest() {
-        Array c = new Array();
-        c.add(11);
-        c.add(-5);
-        c.add(3);
+        Array a = new Array();
+        a.add(11);
+        a.add(-5);
+        a.add(3);
 
-        Assert.assertThat(c.get(0), is(11));
-        Assert.assertThat(c.get(1), is(-5));
-        Assert.assertThat(c.get(2), is(3));
+        System.out.println(a);
+
+        Assert.assertThat(a.get(0), is(11));
+        Assert.assertThat(a.get(1), is(-5));
+        Assert.assertThat(a.get(2), is(3));
     }
 
-    public static void main(String[] args) {
-
-    }
 }

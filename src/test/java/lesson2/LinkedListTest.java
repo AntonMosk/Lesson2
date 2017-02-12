@@ -13,9 +13,12 @@ public class LinkedListTest {
     @Test
     public void addTest() {
         LinkedList list = new LinkedList();
+
         list.add(11);
         list.add(-1);
         list.add(7);
+
+        System.out.println(list);
 
         LinkedList.Node first = list.getFirst();
         Assert.assertThat(first.getValue(), is(11));
@@ -35,6 +38,8 @@ public class LinkedListTest {
         list.addBegin(-1);
         list.addBegin(7);
 
+        System.out.println(list);
+
         LinkedList.Node first = list.getFirst();
         Assert.assertThat(first.getValue(), is(7));
 
@@ -49,15 +54,20 @@ public class LinkedListTest {
     @Test
     public void removeTest() {
         LinkedList list = new LinkedList();
+        int n = 21;
 
-        for (int i=0; i<10; i++) {
+        for (int i = 0; i < n; i++) {
             list.add(i);
         }
 
-        for (int i=0; i<10; i++) {
+        System.out.println(list);
+
+        for (int i = 0; i < n; i++) {
             LinkedList.Node node = list.getFirst();
             list.remove(node);
         }
+
+        System.out.println(list);
 
         Assert.assertNull(list.getFirst());
         Assert.assertNull(list.getTail());
@@ -67,12 +77,11 @@ public class LinkedListTest {
     @Test
     public void removeEvenTest() {
         LinkedList list = new LinkedList();
-        LinkedList.Node node1 = list.getFirst();
-        LinkedList.Node node2 = null;
+        LinkedList.Node node1, node2;
 
-        int n = 10;
+        int n = 21;
 
-        for (int i=0; i<n; i++) {
+        for (int i = 0; i < n; i++) {
             list.add(i);
         }
 
@@ -81,8 +90,7 @@ public class LinkedListTest {
 
         node1 = list.getFirst();
         n = list.getSize();
-        for (int i=0; i<n; i+=2) {
-            System.out.println(list);
+        for (int i = 0; i < n; i += 2) {
             if (node1 != null) {
                 node2 = node1.getNext();
                 list.remove(node1);
@@ -92,18 +100,17 @@ public class LinkedListTest {
         }
 
         System.out.println(list);
-        Assert.assertThat(list.getSize(), is(n/2));
+        Assert.assertThat(list.getSize(), is(n / 2));
     }
 
     @Test
     public void removeOddTest() {
         LinkedList list = new LinkedList();
-        LinkedList.Node node1;
-        LinkedList.Node node2 = null;
+        LinkedList.Node node1, node2 = null;
 
-        int n = 10;
+        int n = 21;
 
-        for (int i=0; i<n; i++) {
+        for (int i = 0; i < n; i++) {
             list.add(i);
         }
 
@@ -112,8 +119,7 @@ public class LinkedListTest {
 
         node1 = list.getFirst();
         n = list.getSize();
-        for (int i=0; i<n; i+=2) {
-            System.out.println(list);
+        for (int i = 0; i < n; i += 2) {
             if (node1 != null)
                 node2 = node1.getNext();
             if (node2 != null) {
@@ -123,15 +129,15 @@ public class LinkedListTest {
         }
 
         System.out.println(list);
-        Assert.assertThat(list.getSize(), is(n/2));
+        Assert.assertThat(list.getSize(), is(n / 2 + n % 2));
     }
 
     @Test
     public void reverseLinkedListTest() {
         LinkedList list = new LinkedList();
-        int n = 10;
+        int n = 21;
 
-        for (int i=0; i<n; i++) {
+        for (int i = 0; i < n; i++) {
             list.add(i);
         }
 

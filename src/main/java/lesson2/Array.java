@@ -7,6 +7,16 @@ public class Array {
     private int values[] = new int[10];
     private int count = 0;
 
+    public String toString() {
+        int n = size();
+        String s = "( " + n + " ) : {";
+
+        for (int i=0; i< n; i++) {
+            s = s + " " + get(i);
+        }
+
+        return s + " }";
+    }
 
     public void add(int value) {
         if (count==values.length) {

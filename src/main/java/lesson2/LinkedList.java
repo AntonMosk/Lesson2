@@ -21,18 +21,20 @@ public class LinkedList {
     }
 
     public String toString() {
-        String s = "";
+        String s = "( " + getSize() + " ) : {";
         Node node = first;
+
         while (node != null) {
             s = s + " " + node.getValue();
             node = node.getNext();
         }
-        s += " end.";
-        return s;
+
+        return s + " }";
     }
 
     public void add(int value) {
         Node node = new Node(value);
+
         node.prev = tail;
         if (size == 0) {
             first = node;
@@ -46,6 +48,7 @@ public class LinkedList {
 
     public void addBegin(int value) {
         Node node = new Node(value);
+
         node.next = first;
         if (size == 0) {
             tail = node;
@@ -104,18 +107,15 @@ public class LinkedList {
         }
 
         public Node getNext() {
-            if (this == null) throw new NullPointerException();
-             else return next;
+            return next;
         }
 
         public Node getPrev() {
-            if (this == null) throw new NullPointerException();
-            else return prev;
+            return prev;
         }
 
         public int getValue() {
-            if (this == null) throw new NullPointerException();
-            else return value;
+            return value;
         }
     }
 }
